@@ -14,7 +14,7 @@ const Navbar = () => {
             <Link className='navLink' to="/">Home</Link>
             <Link className='navLink' to="/cart">Cart</Link>
             <span className='cartCount'>
-                    Cart Items:{items.length}
+                    Cart Items:{(items.length > 0)? items.length :""}
             </span>
         </div>
     </div>
