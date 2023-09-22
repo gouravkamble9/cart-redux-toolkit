@@ -6,7 +6,7 @@ const Home = () => {
     <div className='container'>
         <h2 className='heading'>Welcome to the Store</h2>
         <section>
-            <h3>Products</h3>
+            <h3 style={{textAlign:"center",marginBottom:'50px'}}>Products</h3>
             <Products/>
         </section>
     </div>

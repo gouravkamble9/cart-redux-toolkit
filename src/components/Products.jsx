@@ -6,9 +6,11 @@ import { STATUS } from '../store/productSlice'
 
 
 const Products = () => {
+    const [page,SetPage]=useState(1)
     const dispatch=useDispatch()
    const {data,status}=useSelector(state=>state.product)
     useEffect(()=>{
+        console.log(data)
 
         dispatch(fetchProducts())
         // const fetchProducts=async ()=>{
@@ -33,9 +35,10 @@ const Products = () => {
     }
 
   return (
+    <>
     <div className='pro-sec'>
         {
-            data.map((item,index)=>(
+            data.slice(page*4-4,page*4).map((item,index)=>(
                 <div className='card' key={index}>
                     <img src={item.image} alt="" />
                     <p>{item.title}</p>
@@ -45,6 +48,12 @@ const Products = () => {
             ))
         }
     </div>
+    <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:'5px',cursor:'pointer'}}>
+    {[...Array(data.length/4)].map((item,key)=>(
+        <span onClick={()=>SetPage(key+1)}>{key+1}</span>
+    ))}
+</div>
+</>
   )
 }
 
