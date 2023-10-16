@@ -31,14 +31,14 @@ const Products = () => {
     }
 
     if(status === STATUS.ERROR){
-        return <h2>Error</h2>
+        return <h2>No Data Found</h2>
     }
 
   return (
     <>
     <div className='pro-sec'>
         {
-            data.slice(page*4-4,page*4).map((item,index)=>(
+            data.slice(page*8-8,page*8).map((item,index)=>(
                 <div className='card' key={index}>
                     <img src={item.image} alt="" />
                     <p>{item.title}</p>
